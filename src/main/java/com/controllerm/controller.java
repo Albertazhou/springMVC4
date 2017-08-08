@@ -12,8 +12,12 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class controller {
 	@RequestMapping("/hello")
-	public void hello(HttpServletRequest req,HttpServletResponse rep) throws IOException {
-		rep.getWriter().print("hello spring result");
+	public ModelAndView hello(HttpServletRequest req,HttpServletResponse rep) {
+		ModelAndView mv=new ModelAndView();
+		mv.addObject("msg", "hello mvc"); //封装要显示到视图的数据
+		mv.setViewName("hello"); //视图名	
+		return mv;
+		//update
 	}
 
 }
